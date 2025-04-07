@@ -1,0 +1,329 @@
+{
+  "user": {
+    "id": "user123",
+    "name": "Nicholas Richmond",
+    "age": 45,
+    "gender": "male",
+    "height": 178,
+    "weight": 80.5,
+    "bmi": 25.4
+  },
+  "bloodTests": [
+    {
+      "date": "2023-12-15",
+      "results": {
+        "hemoglobin": {
+          "value": 14.2,
+          "unit": "g/dL",
+          "normalRange": "13.5-17.5",
+          "status": "normal"
+        },
+        "whiteBloodCellCount": {
+          "value": 6500,
+          "unit": "cells/μL",
+          "normalRange": "4500-11000",
+          "status": "normal"
+        },
+        "platelets": {
+          "value": 250000,
+          "unit": "cells/μL",
+          "normalRange": "150000-450000",
+          "status": "normal"
+        },
+        "glucose": {
+          "value": 105,
+          "unit": "mg/dL",
+          "normalRange": "70-99",
+          "status": "elevated"
+        },
+        "cholesterolTotal": {
+          "value": 210,
+          "unit": "mg/dL",
+          "normalRange": "<200",
+          "status": "elevated"
+        },
+        "cholesterolHDL": {
+          "value": 45,
+          "unit": "mg/dL",
+          "normalRange": ">40",
+          "status": "normal"
+        },
+        "cholesterolLDL": {
+          "value": 130,
+          "unit": "mg/dL",
+          "normalRange": "<100",
+          "status": "elevated"
+        },
+        "triglycerides": {
+          "value": 165,
+          "unit": "mg/dL",
+          "normalRange": "<150",
+          "status": "elevated"
+        },
+        "sodium": {
+          "value": 140,
+          "unit": "mEq/L",
+          "normalRange": "135-145",
+          "status": "normal"
+        },
+        "potassium": {
+          "value": 4.2,
+          "unit": "mEq/L",
+          "normalRange": "3.5-5.0",
+          "status": "normal"
+        },
+        "creatinine": {
+          "value": 0.9,
+          "unit": "mg/dL",
+          "normalRange": "0.6-1.2",
+          "status": "normal"
+        },
+        "bloodUreaNitrogen": {
+          "value": 15,
+          "unit": "mg/dL",
+          "normalRange": "7-20",
+          "status": "normal"
+        },
+        "thyroidStimulatingHormone": {
+          "value": 2.5,
+          "unit": "mIU/L",
+          "normalRange": "0.4-4.0",
+          "status": "normal"
+        },
+        "vitaminD": {
+          "value": 28,
+          "unit": "ng/mL",
+          "normalRange": "30-100",
+          "status": "deficient"
+        }
+      }
+    },
+    {
+      "date": "2023-06-20",
+      "results": {
+        "hemoglobin": {
+          "value": 14.0,
+          "unit": "g/dL",
+          "normalRange": "13.5-17.5",
+          "status": "normal"
+        },
+        "whiteBloodCellCount": {
+          "value": 7000,
+          "unit": "cells/μL",
+          "normalRange": "4500-11000",
+          "status": "normal"
+        },
+        "platelets": {
+          "value": 260000,
+          "unit": "cells/μL",
+          "normalRange": "150000-450000",
+          "status": "normal"
+        },
+        "glucose": {
+          "value": 110,
+          "unit": "mg/dL",
+          "normalRange": "70-99",
+          "status": "elevated"
+        },
+        "cholesterolTotal": {
+          "value": 215,
+          "unit": "mg/dL",
+          "normalRange": "<200",
+          "status": "elevated"
+        },
+        "cholesterolHDL": {
+          "value": 42,
+          "unit": "mg/dL",
+          "normalRange": ">40",
+          "status": "normal"
+        },
+        "cholesterolLDL": {
+          "value": 135,
+          "unit": "mg/dL",
+          "normalRange": "<100",
+          "status": "elevated"
+        },
+        "triglycerides": {
+          "value": 175,
+          "unit": "mg/dL",
+          "normalRange": "<150",
+          "status": "elevated"
+        }
+      }
+    }
+  ],
+  "vitals": [
+    {
+      "date": "2024-03-15",
+      "bloodPressure": {
+        "systolic": 128,
+        "diastolic": 82,
+        "status": "elevated"
+      },
+      "heartRate": {
+        "value": 72,
+        "unit": "bpm",
+        "status": "normal"
+      },
+      "oxygenSaturation": {
+        "value": 98,
+        "unit": "%",
+        "status": "normal"
+      },
+      "temperature": {
+        "value": 36.7,
+        "unit": "°C",
+        "status": "normal"
+      }
+    },
+    {
+      "date": "2024-02-10",
+      "bloodPressure": {
+        "systolic": 130,
+        "diastolic": 85,
+        "status": "elevated"
+      },
+      "heartRate": {
+        "value": 75,
+        "unit": "bpm",
+        "status": "normal"
+      },
+      "oxygenSaturation": {
+        "value": 97,
+        "unit": "%",
+        "status": "normal"
+      },
+      "temperature": {
+        "value": 36.5,
+        "unit": "°C",
+        "status": "normal"
+      }
+    }
+  ],
+  "medicalHistory": {
+    "conditions": [
+      {
+        "name": "Hypertension (Stage 1)",
+        "diagnosedDate": "2022-05-10",
+        "status": "managed"
+      }
+    ],
+    "allergies": [
+      {
+        "name": "Penicillin",
+        "severity": "moderate",
+        "reaction": "Rash and hives"
+      }
+    ],
+    "medications": [
+      {
+        "name": "Lisinopril",
+        "dosage": "10mg",
+        "frequency": "once daily",
+        "startDate": "2022-05-15",
+        "purpose": "hypertension management"
+      },
+      {
+        "name": "Vitamin D3",
+        "dosage": "2000 IU",
+        "frequency": "once daily",
+        "startDate": "2024-01-05",
+        "purpose": "vitamin D deficiency"
+      }
+    ],
+    "familyHistory": {
+      "father": [
+        {
+          "condition": "Type 2 Diabetes",
+          "onsetAge": 55
+        },
+        {
+          "condition": "Hypertension",
+          "onsetAge": 50
+        }
+      ],
+      "mother": [
+        {
+          "condition": "Breast Cancer",
+          "onsetAge": 62
+        }
+      ],
+      "siblings": []
+    },
+    "surgeries": [
+      {
+        "name": "Appendectomy",
+        "date": "2010-08-22",
+        "notes": "No complications"
+      }
+    ]
+  },
+  "healthMetrics": {
+    "sleepData": [
+      {
+        "date": "2024-03-10",
+        "totalHours": 6.5,
+        "quality": "fair",
+        "deepSleepPercentage": 22
+      },
+      {
+        "date": "2024-03-11",
+        "totalHours": 7.2,
+        "quality": "good",
+        "deepSleepPercentage": 25
+      },
+      {
+        "date": "2024-03-12",
+        "totalHours": 6.8,
+        "quality": "fair",
+        "deepSleepPercentage": 23
+      }
+    ],
+    "exerciseData": [
+      {
+        "date": "2024-03-10",
+        "type": "walking",
+        "duration": 30,
+        "caloriesBurned": 150
+      },
+      {
+        "date": "2024-03-11",
+        "type": "strength training",
+        "duration": 45,
+        "caloriesBurned": 280
+      },
+      {
+        "date": "2024-03-13",
+        "type": "cycling",
+        "duration": 40,
+        "caloriesBurned": 320
+      }
+    ],
+    "nutritionData": [
+      {
+        "date": "2024-03-10",
+        "calories": 2100,
+        "protein": 85,
+        "carbs": 240,
+        "fat": 70,
+        "water": 2.1
+      },
+      {
+        "date": "2024-03-11",
+        "calories": 1950,
+        "protein": 90,
+        "carbs": 210,
+        "fat": 65,
+        "water": 2.3
+      },
+      {
+        "date": "2024-03-12",
+        "calories": 2200,
+        "protein": 80,
+        "carbs": 250,
+        "fat": 75,
+        "water": 1.9
+      }
+    ]
+  }
+} 
