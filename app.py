@@ -1,8 +1,9 @@
+from datetime import datetime
+import time
+from typing import List, Dict
 import os
 import json
 import streamlit as st
-from datetime import datetime
-import time
 
 from agent_marketplace.agents.personal_ai import PersonalAI
 from agent_marketplace.agents.health_agent import HealthAgent
@@ -370,6 +371,43 @@ for message in st.session_state.messages:
 # Modern input area
 user_query = st.chat_input("💬 Ask me about your health data...")
 
+def get_relevant_purchased_products(user_query: str, purchase_history: List[Dict]) -> List[Dict]:
+    """Find relevant previously purchased products based on symptoms or health queries."""
+    relevant_products = []
+    
+    # Define symptom-product category mappings
+    symptom_categories = {
+        "cold": ["Tissues", "Health & Personal Care", "Medicine", "First Aid"],
+        "flu": ["Tissues", "Health & Personal Care", "Medicine", "First Aid"],
+        "headache": ["Health & Personal Care", "Medicine", "First Aid"],
+        "allergies": ["Health & Personal Care", "Medicine", "First Aid", "Air Purifiers"],
+        "pain": ["Health & Personal Care", "Medicine", "First Aid"]
+    }
+    
+    # Identify relevant categories based on symptoms in query
+    relevant_categories = []
+    query_lower = user_query.lower()
+    for symptom, categories in symptom_categories.items():
+        if symptom in query_lower:
+            relevant_categories.extend(categories)
+    
+    # Remove duplicates
+    relevant_categories = list(set(relevant_categories))
+    
+    # If no specific symptoms found, look for general health-related terms
+    if not relevant_categories and any(term in query_lower for term in ["health", "wellness", "medical", "sick"]):
+        relevant_categories = ["Health & Personal Care", "Medicine", "First Aid"]
+    
+    # Search purchase history for relevant products
+    if relevant_categories:
+        for session in purchase_history:
+            for product in session.get("purchase_history", []):
+                product_categories = [cat.lower() for cat in product.get("categories", [])]
+                if any(category.lower() in product_categories for category in relevant_categories):
+                    relevant_products.append(product)
+    
+    return relevant_products
+
 # Process user input
 if user_query and st.session_state.agents_initialized:
     # Add user message to chat
@@ -395,10 +433,28 @@ if user_query and st.session_state.agents_initialized:
         # Clear previous health chat
         st.session_state.health_chat = []
         
+        # Load purchase history data
+        purchase_history_file = os.path.join(os.path.dirname(__file__), "data", "personal_data", personal_ai.owner, "purchase_history_data.json")
+        purchase_history = []
+        if os.path.exists(purchase_history_file):
+            with open(purchase_history_file, 'r') as f:
+                purchase_data = json.load(f)
+                purchase_history = purchase_data.get("Data", [])
+        
+        # Check purchase history for relevant products
+        relevant_products = get_relevant_purchased_products(user_query, purchase_history)
+        
+        # Add relevant products to the health data context
+        if relevant_products:
+            product_context = "\nRelevant Previously Purchased Products:\n"
+            for product in relevant_products:
+                product_context += f"- {product['title']}\n"
+            specific_health_data = product_context + (specific_health_data if 'specific_health_data' in locals() else "")
+        
         # Ensure health data is available in each query
         if health_data:
             # Create a specific prompt based on the query
-            specific_health_data = ""
+            specific_health_data = specific_health_data if 'specific_health_data' in locals() else ""
             
             # Add relevant health data based on query keywords
             if "glucose" in user_query.lower() or "sugar" in user_query.lower() or "diabetes" in user_query.lower():
